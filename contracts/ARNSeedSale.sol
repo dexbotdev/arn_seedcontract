@@ -6,11 +6,12 @@ import './Ownable.sol';
 contract ARNSeedSale is  Ownable{
 
     address public founder;    
-    uint seedSaletokenPrice = 0.00035714285 ether;  
+    uint seedSaletokenPrice = 0.00000286 ether;  
     uint public raisedAmount;  
 
-    uint public seedSalehardCap = 100000;
-    uint public seedSalesoftCap = 19600;
+    uint public seedSalehardCap = 2450000;
+    uint public seedHardCap = 7 ether;
+    uint public seedSalesoftCap = 125000;
     uint public seedSaleCount = 0;
     uint public seedSaleStart = 0;  
     uint public seedSaleEnd =0 ; 
@@ -71,13 +72,13 @@ contract ARNSeedSale is  Ownable{
         require(seedSaleState == State.running,'Seed Sale not running now');
         require(msg.value >= minInvestment && msg.value <= maxInvestment  && investments[msg.sender]<= maxInvestment);
         require(seedSaleCount <= seedSalehardCap);
+        require(raisedAmount <= seedHardCap);
         
         raisedAmount += msg.value;
         uint tokens = msg.value / seedSaletokenPrice; 
         investments[msg.sender] += msg.value;  
-
-        userShare[msg.sender] = 100 * investments[msg.sender]/raisedAmount;
-        seedSaleCount += tokens;
+        userShare[msg.sender] += tokens;  
+         seedSaleCount += tokens;
         depositAddress.transfer(msg.value);
         emit SeedSale(msg.sender, tokens); 
     } 

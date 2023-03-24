@@ -1,6 +1,6 @@
 {
-  "name": "honeypot-checker",
-  "description": "smart contract that check the honeypot",
+  "name": "arnseedcontract",
+  "description": "smart contract for arbinium",
   "license": "MIT",
   "devDependencies": {
     "@ethersproject/providers": "^5.7.2",
