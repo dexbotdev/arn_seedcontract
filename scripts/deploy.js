@@ -10,7 +10,7 @@ async function main() {
   const ARNSeedSale = await hre.ethers.getContractFactory(
     "ARNSeedSale"
   );
-  const arnseed = await ARNSeedSale.deploy("0x520373Aabc612C90cC5f1599E5c020b47cb4ACDb");
+  const arnseed = await ARNSeedSale.deploy("0xFa4896Cd653DEb1De02b93c4D7cf1039a13eFc6B");
 
   await arnseed.deployed();
 

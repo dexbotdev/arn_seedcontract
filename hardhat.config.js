@@ -34,7 +34,8 @@ module.exports = {
   },
   etherscan: {
     apiKey: {
-      arbitrumGoerli: 'NV6614SZM1P3EB3YKUTRNWWV6V81Y17EA7'
+      arbitrumGoerli: 'NV6614SZM1P3EB3YKUTRNWWV6V81Y17EA7',
+      arbitrumOne:'NV6614SZM1P3EB3YKUTRNWWV6V81Y17EA7'
     }
   }
 };

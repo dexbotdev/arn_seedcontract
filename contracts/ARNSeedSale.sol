@@ -11,7 +11,7 @@ contract ARNSeedSale is  Ownable{
 
     uint public seedSalehardCap = 2450000;
     uint public seedHardCap = 7 ether;
-    uint public seedSalesoftCap = 125000;
+    uint public seedSalesoftCap = 1225000;
     uint public seedSaleCount = 0;
     uint public seedSaleStart = 0;  
     uint public seedSaleEnd =0 ; 
@@ -46,6 +46,7 @@ contract ARNSeedSale is  Ownable{
        require(seedSaleStart != 0, 'Seed sale not started'); 
         seedSaleEnd=seedSaleStart + timetoend;
     } 
+
 
     function haltseedSale() public onlyAdmin{
         seedSaleState = State.halted;

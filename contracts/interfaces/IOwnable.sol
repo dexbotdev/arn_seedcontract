@@ -6,7 +6,6 @@ interface IOwnable {
 
     function renounceManagement() external;
 
-    function pushManagement(address newOwner_) external;
-
-    function pullManagement() external;
+    function transferOwnership(address newOwner_) external;
+ 
 }
