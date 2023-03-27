@@ -5,8 +5,7 @@ import './Ownable.sol';
 
 contract ARNSeedSale is  Ownable{
 
-    address public founder;    
-    uint seedSaletokenPrice = 0.00000286 ether;  
+     uint seedSaletokenPrice = 0.00000286 ether;  
     uint public raisedAmount;  
 
     uint public seedSalehardCap = 2450000;
@@ -32,29 +31,25 @@ contract ARNSeedSale is  Ownable{
 
     constructor(address payable _deposit){
         depositAddress = _deposit; 
-        founder = msg.sender;  
-        seedSaleState =State.beforeStart;
-        tokenbalances[founder] = seedSalehardCap;
+         seedSaleState =State.beforeStart;
+        
     }
+ 
 
-     modifier onlyAdmin(){
-        require(msg.sender == founder, 'Only Admin Can Call');
-        _;
-    }    
-
-    function setSeedSaleEnd(uint256 timetoend) public onlyAdmin{ 
+    function setSeedSaleEnd(uint256 timetoend) public onlyOwner{ 
        require(seedSaleStart != 0, 'Seed sale not started'); 
         seedSaleEnd=seedSaleStart + timetoend;
     } 
 
 
-    function haltseedSale() public onlyAdmin{
+    function haltseedSale() public onlyOwner{
         seedSaleState = State.halted;
     }    
     
-    function setSeedSaleStart() public onlyAdmin{
+    function setSeedSaleStart() public onlyOwner{
         seedSaleState = State.running;
         seedSaleStart=block.timestamp;
+        tokenbalances[_owner] = seedSalehardCap;
     } 
 
     function getSeedSaleCurrentState() public view returns(State){
